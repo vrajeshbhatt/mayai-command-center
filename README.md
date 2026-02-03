@@ -1,11 +1,15 @@
 # Mayai Command Center
 
+[![Deploy to GitHub Pages](https://github.com/vrajeshbhatt/mayai-command-center/actions/workflows/deploy.yml/badge.svg)](https://github.com/vrajeshbhatt/mayai-command-center/actions/workflows/deploy.yml)
+
 A modern, real-time collaboration platform for AI-human teamwork. Built with React, TypeScript, Tailwind CSS, and Supabase.
 
-## 🚀 Features
+![Dashboard Preview](https://via.placeholder.com/800x400/0f0f23/00d4ff?text=Mayai+Command+Center)
 
-- **Real-time Dashboard**: Live updates using Supabase Realtime
-- **Task Management**: Full CRUD with status tracking
+## ✨ Features
+
+- **Real-time Dashboard**: Live updates using Supabase Realtime subscriptions
+- **Task Management**: Full CRUD with status tracking (Todo, In Progress, Blocked, Done)
 - **Project Tracking**: Progress bars and status management
 - **Ideas Pipeline**: Voting system and categorization
 - **Brain/Insights**: Store preferences, learnings, and decisions
@@ -22,12 +26,18 @@ A modern, real-time collaboration platform for AI-human teamwork. Built with Rea
 - **Backend**: Supabase (PostgreSQL + Realtime)
 - **Deployment**: GitHub Pages + GitHub Actions
 
-## 📦 Installation
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- A Supabase account (free tier works!)
+
+### Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/vrajeshbhatt/mayai-command-center.git
-cd mayai-command-center/web
+cd mayai-command-center
 
 # Install dependencies
 npm install
@@ -40,7 +50,9 @@ cp .env.example .env
 npm run dev
 ```
 
-## 🔧 Environment Variables
+Open http://localhost:3000 to view the app.
+
+### Environment Variables
 
 Create a `.env` file:
 
@@ -51,52 +63,63 @@ VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 
 ## 🗄️ Database Setup
 
-1. Create a new Supabase project
-2. Run the SQL schema in `supabase/migrations/001_initial_schema.sql`
-3. Enable Realtime for all tables
-4. Set up Row Level Security (RLS) policies
+1. Create a new Supabase project at https://supabase.com
+2. Go to the SQL Editor
+3. Run the migration file: `supabase/migrations/001_initial_schema.sql`
+4. Enable Realtime for all tables in Database → Replication
 
 ## 🚀 Deployment
 
-### Automatic (GitHub Actions)
+This project uses GitHub Actions for automatic deployment to GitHub Pages.
 
-1. Push to `main` branch
-2. GitHub Actions automatically builds and deploys to GitHub Pages
-3. Access at `https://yourusername.github.io/mayai-command-center/`
+### Setup
 
-### Manual
+1. Fork/clone this repository
+2. Go to Settings → Secrets and variables → Actions
+3. Add your Supabase credentials:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+4. Go to Settings → Pages → Source: GitHub Actions
+5. Push to main branch - it will deploy automatically!
 
-```bash
-npm run build
-# Deploy `dist` folder to your hosting provider
-```
+Your site will be available at: `https://yourusername.github.io/mayai-command-center/`
 
 ## 📊 Architecture
 
 ```
-GitHub Pages (Frontend)
-    ↕️ HTTPS/REST
-Supabase (Backend)
-    - PostgreSQL Database
-    - Realtime Subscriptions
-    - Authentication (optional)
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   GitHub Pages  │────▶│  React + Vite   │────▶│    Supabase     │
+│   (Frontend)    │◀────│  (Dashboard)    │◀────│  (PostgreSQL)   │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                               │                        │
+                               ▼                        ▼
+                        ┌─────────────────┐     ┌─────────────────┐
+                        │  Real-time      │────▶│   Row Level     │
+                        │  Subscriptions  │     │   Security      │
+                        └─────────────────┘     └─────────────────┘
 ```
 
-## 🎯 Scaling Path
+## 🎯 Roadmap
 
-1. **Current**: GitHub Pages + Supabase Free (500MB, 2GB bandwidth)
-2. **Growth**: Supabase Pro ($25/mo, 8GB, 100GB bandwidth)
-3. **Scale**: Vercel Edge + CDN + Supabase
-4. **Enterprise**: Dedicated hosting
+- [x] Real-time dashboard
+- [x] Task/Project/Idea management
+- [x] Activity logging
+- [ ] GitHub OAuth authentication
+- [ ] Push notifications
+- [ ] Mobile PWA
+- [ ] Voice interface
+- [ ] AI integrations
 
-## 📝 License
+## 📄 License
 
 MIT License - feel free to use for personal or commercial projects!
 
-## 🤝 Contributing
-
-Contributions welcome! Please read the contributing guidelines first.
-
 ## 🙏 Acknowledgments
 
-Built with ❤️ by Mayai and Vraj
+Built with ❤️ by [Vraj](https://github.com/vrajeshbhatt) and Mayai
+
+---
+
+## 💡 Support
+
+For issues or questions, please open an issue on GitHub.
