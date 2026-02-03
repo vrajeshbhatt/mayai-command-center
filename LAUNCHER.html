@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mayai Command Center Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f0f23;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .btn {
+            background: #00d4ff;
+            color: black;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #00b8d9;
+        }
+        .info {
+            margin-top: 30px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mayai Command Center</h1>
+    <p>Choose how to open:</p>
+    
+    <a href="http://localhost:3000/mayai-command-center/" class="btn">Dev Server (3000)</a>
+    <a href="http://localhost:8080/mayai-command-center/" class="btn">Preview (8080)</a>
+    <a href="http://127.0.0.1:5000" class="btn">HTTP Server (5000)</a>
+    
+    <div class="info">
+        <p>If all fail, run this in PowerShell:</p>
+        <code>cd D:\Mayai\web; npm run dev</code>
+    </div>
+</body>
+</html>
